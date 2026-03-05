@@ -1,6 +1,6 @@
 /**
  * KNOWN BUG LOG:
- * 
+ * Not fully implemented changes, go to parseInstruction
  *
  * FEATURES TO ADD:
  * full line by line parsing instead of token by token
@@ -10,7 +10,7 @@
  */
 
 /**
- * C POLITE COMPILER AND RUNNER
+ * C POLITE COMPILER AND EXECUTER
  * CREATED BY LOGAN FRANKE
  */
 
@@ -25,6 +25,25 @@ char g[100];
 char h[100];
 char i[100];
 char j[100];
+
+typedef enum {
+	CMD_PRINT,
+	CMD_PRINTLN,
+	CMD_PRINTVAR,
+	CMD_INPUT,
+	CMD_ADD,
+	CMD_SUB,
+	CMD_MULT,
+	CMD_DIV,
+	CMD_THANKYOU,
+	CMD_UNKNOWN
+} CommandType;
+
+typedef struct {
+	CommandType type;
+	int var1, var2, var3;
+	cahr text[500];
+} Instruction;
 
 // getNum - Gets a number for a math command with variable handling
 int getNum(int line, FILE* fp) {
@@ -71,6 +90,65 @@ int getNum(int line, FILE* fp) {
 		return atoi(next);
 	}
 }
+
+// parseLine - Parses a line into tokens and arguments
+void parseLine(char* line, Instruction* instr) {
+
+	// Initialize
+	instr->type = CMD_UNKNOWN;
+	instr->var1 = 0;
+	instr->var2 = 0;
+	instr->var3 = 0;
+	instr->text[0] = '\0';
+
+	char* token = strtok(line, " ");
+
+	if(token == NULL) {return;} // Blank line
+
+	if(strcmp(token, "please") != 0) {
+		printf("ERROR: Impolite instruction: %s\n", line);
+		return;
+	}
+
+	token = strtok(NULL, " ");
+	if(token == NULL) {
+		printf("ERROR: No request after please\n");
+		return;
+	}
+
+	if(strcmp(token, "println") == 0) {
+		instr->type = CMD_PRINTLN;
+		char* rest = strtok(NULL, "");
+		if(rest != NULL) {
+			char* end = strstr(rest, "donethankyoucomputer");
+			if(end) *end = '\0';
+			strcpy(instr->text, rest);
+		}
+	}
+	else if(strcmp(token, "print") == 0) {
+		instr->type = CMD_PRINT;
+		char* rest = strtok(NULL, "");
+		if(rest != NULL) {
+			char* end = strstr(rest, "donethankyoucomputer");
+			if(end) *end = '\0';
+			strcpy(instr->text, rest);
+		}
+	}
+	else if(strcmp(token, "printvar") == 0) {
+		instr->type = CMD_PRINTVAR;
+		instr->var1 = atoi(strtok(NULL, " "));
+	}
+	else if(strcmp(token, "input") == 0) {
+		instr->type = CMD_INPUT;
+		instr->var1 = atoi(strtok(NULL, " "));
+	}
+	else if(strcmp(token, "add") == 0) {
+		instr->type = CMD_ADD;
+		instr->var1 = atoi(strtok(NULL, " "));
+		instr->var2 = getVarIndex(strtok(NULL, " "));
+		instr->var3 = getVarIndex(strtok(NULL, " "));
+	}
+	else
 
 int main(int argc, char** argv) {
 		
@@ -131,12 +209,25 @@ int main(int argc, char** argv) {
 	}
 	
 	// Parse the program file until it is over
-	char cursor[50];
+	char lineBuffer[1000];
+	Instruction instructions[10000];
+	int instructionsCount = 0;
 	int line = 1;
 	int thanked = 0;
 
-	while((fscanf(fp, "%s", cursor)) == 1) {
+	while(fgets(lineBuffer, 1000, fp) != NULL) {
+
+		lineBuffer[strcspn(lineBuffer, "\n")] = 0;
+		if(strlen(lineBuffer) == 0) {continue;}
+
+		Instruction instr;
+		parseLine(lineBuffer, &instr); // Parse the line into an instruction set
+		instructions[instructionCount++] = instr;
+	}
 		
+		
+
+		/*
 		// Ensure the programmer is saying please before each command
 		if(strcmp("please", cursor) == 0) {
 			
@@ -489,7 +580,7 @@ int main(int argc, char** argv) {
 		line++;
 			
 	}
-	
+	*/
 	// Close the file
 	fclose(fp);
 	
