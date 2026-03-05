@@ -3,7 +3,8 @@
  * 
  *
  * FEATURES TO ADD:
- * other math functions
+ * full line by line parsing instead of token by token
+ * advanced math functions
  * random functionality
  * compare functions
  */
