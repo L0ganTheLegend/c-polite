@@ -106,6 +106,15 @@ int main(int argc, char** argv) {
 		printf(" add - Adds two numbers (use \"$ \" before variable indexes)\n");
 		printf(" example: add 3 $ 1 $ 4 ... adds variable 1 and 4\n");
 		printf(" usage: add <destination> <num1> <num2>\n");
+		printf(" sub - Subtracts two numbers (use \"$ \" before variable indexes)\n");
+		printf(" example: sub 3 $ 1 $ 4 ... subtracts variable 1 and 4\n");
+		printf(" usage: sub <destination> <num1> <num2>\n");
+		printf(" mult - Multiplies two numbers (use \"$ \" before variable indexes)\n");
+		printf(" example: mult 3 $ 1 $ 4 ... multiplies variable 1 and 4\n");
+		printf(" usage: mult <destination> <num1> <num2>\n");
+		printf(" div - Divides two numbers (use \"$ \" before variable indexes)\n");
+		printf(" example: div 3 $ 1 $ 4 ... Divides variable 1 and 4\n");
+		printf(" usage: div <destination> <num1> <num2>\n");
 		printf(" thankyou - Ends the program nicely (required)\n");
 		printf(" usage: thankyou\n");
 		return 0;
@@ -325,6 +334,129 @@ int main(int argc, char** argv) {
 						break;
 					case(6):
 						f = num1 + num2;
+						break;
+					default:
+						printf("ERROR: Something terrible has happened on line %d!\n", line);
+						return 1;
+						break;
+				}
+			}
+
+			// sub code 
+			else if(strcmp(cursor, "sub") == 0) {
+				int dest;
+				if(fscanf(fp, "%d", &dest) != 1) {
+					printf("ERROR: Specified variable %d is not availible line %d!\n", dest, line);
+					fclose(fp);
+					return 1;
+				}
+				int num1 = getNum(line, fp);
+				int num2 = getNum(line, fp);
+				if(num1 == INT_MIN || num2 == INT_MIN) {
+					return 1;
+				}
+				switch(dest) {
+					case(1):
+						a = num1 - num2;
+						break;
+					case(2):
+						b = num1 - num2;
+						break;
+					case(3):
+						c = num1 - num2;
+						break;
+					case(4):
+						d = num1 - num2;
+						break;
+					case(5):
+						e = num1 - num2;
+						break;
+					case(6):
+						f = num1 - num2;
+						break;
+					default:
+						printf("ERROR: Something terrible has happened on line %d!\n", line);
+						return 1;
+						break;
+				}
+			}
+
+			// mult code
+			else if(strcmp(cursor, "mult") == 0) {
+				int dest;
+				if(fscanf(fp, "%d", &dest) != 1) {
+					printf("ERROR: Specified variable %d is not availible line %d!\n", dest, line);
+					fclose(fp);
+					return 1;
+				}
+				int num1 = getNum(line, fp);
+				int num2 = getNum(line, fp);
+				if(num1 == INT_MIN || num2 == INT_MIN) {
+					return 1;
+				}
+				switch(dest) {
+					case(1):
+						a = num1 * num2;
+						break;
+					case(2):
+						b = num1 * num2;
+						break;
+					case(3):
+						c = num1 * num2;
+						break;
+					case(4):
+						d = num1 * num2;
+						break;
+					case(5):
+						e = num1 * num2;
+						break;
+					case(6):
+						f = num1 * num2;
+						break;
+					default:
+						printf("ERROR: Something terrible has happened on line %d!\n", line);
+						return 1;
+						break;
+				}
+			}
+			
+			// div code
+			else if(strcmp(cursor, "div") == 0) {
+				int dest;
+				if(fscanf(fp, "%d", &dest) != 1) {
+					printf("ERROR: Specified variable %d is not availible line %d!\n", dest, line);
+					fclose(fp);
+					return 1;
+				}
+				int num1 = getNum(line, fp);
+				int num2 = getNum(line, fp);
+				if(num1 == INT_MIN || num2 == INT_MIN) {
+					return 1;
+				}
+				if(num2 == 0) {
+					printf("ERROR: Divide by zero on line %d!\n", line);
+					fclose(fp);
+					return 1;
+				}
+
+				switch(dest) {
+					case(1):
+						a = num1 / num2;
+						break;
+					case(2):
+						b = num1 / num2;
+						break;
+					case(3):
+						c = num1 / num2;
+						break;
+					case(4):
+						d = num1 / num2;
+						break;
+					case(5):
+						e = num1 / num2;
+						break;
+					case(6):
+						f = num1 / num2;
 						break;
 					default:
 						printf("ERROR: Something terrible has happened on line %d!\n", line);
