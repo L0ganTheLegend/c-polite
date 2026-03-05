@@ -47,7 +47,7 @@ usage: mult <destination> <num1> <num2>
 
 **div** - Divides two numbers (use "$ " before variable indexes)
 
-example: div 3 $ 1 $ 4 ... Divides variable 1 and 4
+example: div 3 $ 1 $ 4 ... divides variable 1 and 4
 
 usage: div <destination> <num1> <num2>
 
