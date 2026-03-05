@@ -1,0 +1,53 @@
+please println Please enter a number to add donethankyoucomputer
+please input 1
+please println Please enter another number to add donethankyoucomputer
+please input 2
+please add 3 $ 1 $ 2
+please print When you add donethankyoucomputer
+please printvar 1
+please print  and donethankyoucomputer
+please printvar 2
+please print  you get donethankyoucomputer
+please printvar 3
+please println ! donethankyoucomputer
+
+please println Please enter a number to subtract from donethankyoucomputer
+please input 1
+please println Please enter a number to subtract donethankyoucomputer
+please input 2
+please sub 3 $ 1 $ 2
+please print When you take donethankyoucomputer
+please printvar 1
+please print  and subtract donethankyoucomputer
+please printvar 2
+please print  you get donethankyoucomputer
+please printvar 3
+please println ! donethankyoucomputer
+
+please println Please enter a number to multiply donethankyoucomputer
+please input 1
+please println Please enter a number to multiply by donethankyoucomputer
+please input 2
+please mult 3 $ 1 $ 2
+please print When you multiply donethankyoucomputer
+please printvar 1
+please print  and donethankyoucomputer
+please printvar 2
+please print  you get donethankyoucomputer
+please printvar 3
+please println ! donethankyoucomputer
+
+please println Please enter a number to divide from donethankyoucomputer
+please input 1
+please println Please enter a number to divide by donethankyoucomputer
+please input 2
+please div 3 $ 1 $ 2
+please print When you take donethankyoucomputer
+please printvar 1
+please print  and divide donethankyoucomputer
+please printvar 2
+please print  you get donethankyoucomputer
+please printvar 3
+please println ! donethankyoucomputer
+
+thankyou
