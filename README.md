@@ -1,14 +1,11 @@
 # c-polite
-A more polite language, relying on saying please and thank you to the computer.
-
+A more polite language, relying on saying please and thank you to the computer
 
 Use ./please_run -h for more info.
 
-
 Write C Polite commands in a .cpol file
 
-
-cpol commands:
+# cpol commands:
 
 please - Asks the computer nicely to do a command (required)
 
