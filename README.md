@@ -33,6 +33,6 @@ example: add $ 1 4 ... adds variable 1 and 4
 
 usage: add <destination> <num1> <num2>
 
-* thankyou - Ends the program nicely (required)
+**thankyou** - Ends the program nicely (required)
 
 usage: thankyou
