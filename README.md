@@ -33,6 +33,24 @@ example: add $ 1 4 ... adds variable 1 and 4
 
 usage: add <destination> <num1> <num2>
 
+**sub** - Subtracts two numbers (use "$ " before variable indexes)
+
+example: sub 3 $ 1 $ 4 ... subtracts variable 1 and 4
+
+usage: sub <destination> <num1> <num2>
+
+**mult** - Multiplies two numbers (use "$ " before variable indexes)
+
+example: mult 3 $ 1 $ 4 ... multiplies variable 1 and 4
+
+usage: mult <destination> <num1> <num2>
+
+**div** - Divides two numbers (use "$ " before variable indexes)
+
+example: div 3 $ 1 $ 4 ... Divides variable 1 and 4
+
+usage: div <destination> <num1> <num2>
+
 **thankyou** - Ends the program nicely (required)
 
 usage: thankyou
